@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:intl/intl.dart';
 import 'package:task_list/core/data/global_data.dart';
+import 'package:task_list/core/init/app_initializer.dart';
 import 'package:task_list/core/notification/localNorification.dart';
 import 'package:task_list/core/theme/theme.dart';
 import 'package:task_list/core/utils/utils.dart';
@@ -11,15 +12,17 @@ import 'package:task_list/cubits/cubit/cubit_category.dart';
 import 'package:task_list/cubits/cubit/data_cubit.dart';
 import 'package:task_list/cubits/cubit/setting_cubit.dart';
 import 'package:task_list/feature/pageView/views/homepage.dart';
-import 'package:task_list/feature/splashScreen/views/splashPage.dart';
 import 'package:task_list/core/buildTask/task.dart';
 import 'package:task_list/generated/l10n.dart';
 import 'package:task_list/pages/firstOpenPage.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-// solve
+final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
+
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await Hive.initFlutter();
   //await Hive.deleteBoxFromDisk('task_box');
@@ -94,15 +97,27 @@ class MyWidget extends StatefulWidget {
   State<MyWidget> createState() => _MyWidgetState();
 }
 
-final navKey = new GlobalKey<NavigatorState>();
-
 class _MyWidgetState extends State<MyWidget> {
+  bool _initialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!_initialized) {
+        _initialized = true;
+        String route = await AppInitializer.initialize(context);
+        FlutterNativeSplash.remove();
+        if (mounted) {
+          navKey.currentState?.pushReplacementNamed(route);
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-
     context.watch<SettingCubit>();
-
-
     listenToNotifications(context);
     return MaterialApp(
       navigatorKey: navKey,
@@ -114,12 +129,11 @@ class _MyWidgetState extends State<MyWidget> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      initialRoute: '/',
+      initialRoute: '/home',
       theme: theme,
       darkTheme: darkTheme,
       themeMode: themeMode,
       routes: {
-        '/': (context) => const SplashScreen(),
         '/home': (context) => const HomePage(),
         '/first': (context) => FirstOpen(),
       },

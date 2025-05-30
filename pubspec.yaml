@@ -40,6 +40,7 @@ dependencies:
   flutter_bloc: ^8.1.5
   flutter_cache_manager: ^3.3.2
   flutter_local_notifications: ^18.0.1
+  flutter_native_splash: ^2.3.10
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   omni_datetime_picker: ^2.0.5
@@ -68,8 +69,8 @@ flutter_launcher_icons:
   image_path_ios: "assets/icon/icon.png" # for iOS
   image_path_android: "assets/icon/icon.png" # for Android
   image_path: "assets/icon/icon.png" # for both
-  adaptive_icon_background: "#000D0D" # <- This works!
-  background_color: "#000D0D" # <- This works!
+  adaptive_icon_background: "#0f4c75" # Changed to a nice blue color
+  background_color: "#0f4c75" # Changed to match
   adaptive_icon: true
 
   # adaptive_icon_foreground: "assets/icon/logo.png"
@@ -89,6 +90,12 @@ flutter_launcher_icons:
     generate: true
     image_path: "assets/icon/icon.png"
 
+flutter_native_splash:
+  color: "#000000"
+  image: assets/icon/icon.png
+  android: true
+  ios: true
+  web: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

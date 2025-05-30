@@ -107,6 +107,7 @@ class DataCubit extends Cubit<DataState> {
   }
 
   void updateStateOfTask(int index, bool? value) {
+    debugPrint("updateStateOfTask: $index");
     Task taskToUpdate = filteredList[index];
     int mainIndex = data.indexWhere((task) =>
         task.id == taskToUpdate.id);
