@@ -310,14 +310,14 @@ class S {
     return Intl.message('Arabic', name: 'arabic', desc: '', args: []);
   }
 
-  /// `Work`
+  /// `work`
   String get work {
-    return Intl.message('Work', name: 'work', desc: '', args: []);
+    return Intl.message('work', name: 'work', desc: '', args: []);
   }
 
-  /// `Personal`
+  /// `personal`
   String get personal {
-    return Intl.message('Personal', name: 'personal', desc: '', args: []);
+    return Intl.message('personal', name: 'personal', desc: '', args: []);
   }
 
   /// `shopping`
@@ -325,14 +325,14 @@ class S {
     return Intl.message('shopping', name: 'shopping', desc: '', args: []);
   }
 
-  /// `Health`
+  /// `health`
   String get health {
-    return Intl.message('Health', name: 'health', desc: '', args: []);
+    return Intl.message('health', name: 'health', desc: '', args: []);
   }
 
-  /// `Home`
+  /// `home`
   String get homee {
-    return Intl.message('Home', name: 'homee', desc: '', args: []);
+    return Intl.message('home', name: 'homee', desc: '', args: []);
   }
 
   /// `New Category`

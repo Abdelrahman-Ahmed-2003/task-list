@@ -137,6 +137,11 @@ class DataCubit extends Cubit<DataState> {
     for(int i =0; i < data.length; i++) {
       DateTime taskDate = DateTime.parse(data[i].date);
       if (taskDate.isBefore(today) && !data[i].isDone) {
+        if(data[i].isDone == true){
+          data.removeAt(i);
+          box.deleteAt(i);
+          continue;
+        }
         data[i].date = today.toString().split(" ")[0];
         LocalNotification.cancelNotification(data[i].id.hashCode);
         LocalNotification.scheduleNotificationForTask(data[i]);

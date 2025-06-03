@@ -47,9 +47,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "foundTaskInSameTime": MessageLookupByLibrary.simpleMessage(
       "There is a task in the same time",
     ),
-    "health": MessageLookupByLibrary.simpleMessage("Health"),
+    "health": MessageLookupByLibrary.simpleMessage("health"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
-    "homee": MessageLookupByLibrary.simpleMessage("Home"),
+    "homee": MessageLookupByLibrary.simpleMessage("home"),
     "languages": MessageLookupByLibrary.simpleMessage("Languages"),
     "mode": MessageLookupByLibrary.simpleMessage("Mode"),
     "newCategory": MessageLookupByLibrary.simpleMessage("New Category"),
@@ -58,7 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noTasks": MessageLookupByLibrary.simpleMessage("No Tasks"),
     "notification": MessageLookupByLibrary.simpleMessage("Notification"),
-    "personal": MessageLookupByLibrary.simpleMessage("Personal"),
+    "personal": MessageLookupByLibrary.simpleMessage("personal"),
     "selectCategory": MessageLookupByLibrary.simpleMessage(
       "Please select category",
     ),
@@ -91,7 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateCategorySuccessfullu": MessageLookupByLibrary.simpleMessage(
       "Categories updated successfully!",
     ),
-    "work": MessageLookupByLibrary.simpleMessage("Work"),
+    "work": MessageLookupByLibrary.simpleMessage("work"),
     "yesDelete": MessageLookupByLibrary.simpleMessage("Yes Delete"),
   };
 }
